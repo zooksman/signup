@@ -103,8 +103,8 @@ class Verify(webapp2.RequestHandler):
             error += "matcherror=" + "Those passwords do not match."
         
         # other stuff
-        userkeep = self.request.get("username")
-        emailkeep = self.request.get("email")
+        userkeep = cgi.escape(self.request.get("username"))
+        emailkeep = cgi.escape(self.request.get("email"))
         
         # welcome page
         if error == "":
